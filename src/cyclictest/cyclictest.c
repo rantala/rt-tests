@@ -1347,7 +1347,7 @@ static void display_help(int error)
 	       "         --secaligned [USEC] align thread wakeups to the next full second\n"
 	       "                           and apply the optional offset\n"
 	       "-s       --system          use sys_nanosleep and sys_setitimer\n"
-	       "-S       --smp             Standard SMP testing: options -a -t -n and\n"
+	       "-S       --smp             Standard SMP testing: options -a -t and\n"
 	       "                           same priority of all threads\n"
 	       "	--spike=<trigger>  record all spikes > trigger\n"
 	       "	--spike-nodes=[num of nodes]\n"
