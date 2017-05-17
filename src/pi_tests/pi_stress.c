@@ -709,7 +709,7 @@ void *low_priority(void *arg)
 		}
 
 		/* initial state */
-		pi_debug("low_priority[%d]: entering start wait (%d)\n", p->id,
+		pi_debug("low_priority[%d]: entering start wait (%lu)\n", p->id,
 		      count++);
 		status = pthread_barrier_wait(&p->start_barrier);
 		if (status && status != PTHREAD_BARRIER_SERIAL_THREAD) {
@@ -837,7 +837,7 @@ void *med_priority(void *arg)
 		}
 
 		/* start state */
-		pi_debug("med_priority[%d]: entering start state (%d)\n", p->id,
+		pi_debug("med_priority[%d]: entering start state (%lu)\n", p->id,
 		      count++);
 		status = pthread_barrier_wait(&p->start_barrier);
 		if (status && status != PTHREAD_BARRIER_SERIAL_THREAD) {
@@ -961,7 +961,7 @@ void *high_priority(void *arg)
 			}
 			pthread_mutex_unlock(&shutdown_mtx);
 		}
-		pi_debug("high_priority[%d]: entering start state (%d)\n", p->id,
+		pi_debug("high_priority[%d]: entering start state (%lu)\n", p->id,
 		      count++);
 		status = pthread_barrier_wait(&p->start_barrier);
 		if (status && status != PTHREAD_BARRIER_SERIAL_THREAD) {
