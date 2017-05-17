@@ -1065,8 +1065,8 @@ static void *timerthread(void *param)
 	next.tv_nsec += interval.tv_nsec;
 	tsnorm(&next);
 
+	memset(&stop, 0, sizeof(stop)); /* grrr */
 	if (duration) {
-		memset(&stop, 0, sizeof(stop)); /* grrr */
 		stop = now;
 		stop.tv_sec += duration;
 	}
