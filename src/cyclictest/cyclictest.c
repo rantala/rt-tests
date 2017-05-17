@@ -1149,7 +1149,7 @@ static void *timerthread(void *param)
 		ret = clock_gettime(par->clock, &now);
 		if (ret != 0) {
 			if (ret != EINTR)
-				warn("clock_getttime() failed. errno: %d\n",
+				warn("clock_gettime() failed. errno: %d\n",
 				     errno);
 			goto out;
 		}
