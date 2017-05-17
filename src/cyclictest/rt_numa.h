@@ -64,7 +64,7 @@ static void *rt_numa_numa_alloc_onnode(size_t size, int node, int cpu)
 	void *stack;
 	stack = numa_alloc_onnode(size, node);
 	if (stack == NULL)
-		fatal("failed to allocate %d bytes on node %d for cpu %d\n",
+		fatal("failed to allocate %zd bytes on node %d for cpu %d\n",
 				size, node, cpu);
 	return stack;
 }
