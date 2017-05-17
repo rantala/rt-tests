@@ -354,7 +354,7 @@ static int kernvar(int mode, const char *name, char *value, size_t sizeofvalue)
 				value[got-1] = '\0';
 			}
 		} else if (mode == O_WRONLY) {
-			if (write(path, value, sizeofvalue) == sizeofvalue)
+			if (write(path, value, sizeofvalue) == (ssize_t)sizeofvalue)
 				retval = 0;
 		}
 		close(path);
@@ -792,8 +792,8 @@ static int raise_soft_prio(int policy, const struct sched_param *param)
 		return err;
 	}
 
-	soft_max = (rlim.rlim_cur == RLIM_INFINITY) ? policy_max : rlim.rlim_cur;
-	hard_max = (rlim.rlim_max == RLIM_INFINITY) ? policy_max : rlim.rlim_max;
+	soft_max = (rlim.rlim_cur == RLIM_INFINITY) ? policy_max : (int)rlim.rlim_cur;
+	hard_max = (rlim.rlim_max == RLIM_INFINITY) ? policy_max : (int)rlim.rlim_max;
 
 	if (prio > soft_max && prio <= hard_max) {
 		rlim.rlim_cur = prio;
