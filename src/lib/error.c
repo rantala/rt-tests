@@ -7,7 +7,7 @@
 #include "error.h"
 
 /* Print an error message, plus a message for err and exit with error err */
-void err_exit(int err, char *fmt, ...)
+void err_exit(int err, const char *fmt, ...)
 {
 	va_list ap;
 	va_start(ap, fmt);
@@ -17,7 +17,7 @@ void err_exit(int err, char *fmt, ...)
 }
 
 /* print an error message and return */
-void err_msg(char *fmt, ...)
+void err_msg(const char *fmt, ...)
 {
 	va_list ap;
 	va_start(ap, fmt);
@@ -27,7 +27,7 @@ void err_msg(char *fmt, ...)
 }
 
 /* Print an error message, plus a message for err, and return */
-void err_msg_n(int err, char *fmt, ...)
+void err_msg_n(int err, const char *fmt, ...)
 {
 	va_list ap;
 	va_start(ap, fmt);
@@ -37,7 +37,7 @@ void err_msg_n(int err, char *fmt, ...)
 }
 
 /* print an error message and quit */
-void err_quit(char *fmt, ...)
+void err_quit(const char *fmt, ...)
 {
 	va_list ap;
 	va_start(ap, fmt);
@@ -46,7 +46,7 @@ void err_quit(char *fmt, ...)
 	exit(1);
 }
 
-void debug(char *fmt, ...)
+void debug(const char *fmt, ...)
 {
 	va_list ap;
 
@@ -56,7 +56,7 @@ void debug(char *fmt, ...)
 	va_end(ap);
 }
 
-void info(char *fmt, ...)
+void info(const char *fmt, ...)
 {
 	va_list ap;
 
@@ -66,7 +66,7 @@ void info(char *fmt, ...)
 	va_end(ap);
 }
 
-void warn(char *fmt, ...)
+void warn(const char *fmt, ...)
 {
 	va_list ap;
 
@@ -76,7 +76,7 @@ void warn(char *fmt, ...)
 	va_end(ap);
 }
 
-void fatal(char *fmt, ...)
+void fatal(const char *fmt, ...)
 {
 	va_list ap;
 
