@@ -1349,8 +1349,8 @@ static void display_help(int error)
 	       "-s       --system          use sys_nanosleep and sys_setitimer\n"
 	       "-S       --smp             Standard SMP testing: options -a -t and\n"
 	       "                           same priority of all threads\n"
-	       "	--spike=<trigger>  record all spikes > trigger\n"
-	       "	--spike-nodes=[num of nodes]\n"
+	       "	 --spike=<trigger> record all spikes > trigger\n"
+	       "	 --spike-nodes=[num of nodes]\n"
 	       "			   These are the maximum number of spikes we can record.\n"
 	       "			   The default is 1024 if not specified\n"
 #ifdef ARCH_HAS_SMI_COUNTER
