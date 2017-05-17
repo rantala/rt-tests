@@ -1823,7 +1823,7 @@ static void process_options (int argc, char *argv[], int max_cpus)
 	if (tracelimit)
 		fileprefix = procfileprefix;
 
-	if (clocksel < 0 || clocksel > ARRAY_SIZE(clocksources))
+	if (clocksel < 0 || clocksel >= (int)ARRAY_SIZE(clocksources))
 		error = 1;
 
 	if (oscope_reduction < 1)
