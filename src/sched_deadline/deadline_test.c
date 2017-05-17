@@ -1679,8 +1679,8 @@ static void do_sleep(u64 next)
 
 	req.tv_nsec = next * 1000;
 	req.tv_sec = 0;
-	while (req.tv_nsec > 1000000000UL) {
-		req.tv_nsec -= 1000000000UL;
+	while (req.tv_nsec > 1000000000L) {
+		req.tv_nsec -= 1000000000L;
 		req.tv_sec++;
 	}
 	nanosleep(&req, NULL);
