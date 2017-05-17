@@ -203,7 +203,7 @@ static void process_options (int argc, char *argv[])
 	for (;;) {
 		int option_index = 0;
 		/** Options for getopt */
-		static struct option long_options[] = {
+		static const struct option long_options[] = {
 			{"affinity", optional_argument, NULL, 'a'},
 			{"breaktrace", required_argument, NULL, 'b'},
 			{"distance", required_argument, NULL, 'd'},

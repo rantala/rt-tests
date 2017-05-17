@@ -68,7 +68,7 @@ int inversions = 1;
 
 int verbose = 0;
 
-struct option options [] = {
+static const struct option options [] = {
 	{ "verbose", no_argument, NULL, 'v' },
 	{ "quiet", no_argument, NULL, 'q' },
 	{ "no-pi", no_argument, NULL, 'n'}, 

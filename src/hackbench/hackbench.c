@@ -348,7 +348,7 @@ static void process_options (int argc, char *argv[])
 	while( 1 ) {
 		int optind = 0;
 
-		static struct option longopts[] = {
+		static const struct option longopts[] = {
 			{"pipe",      no_argument,	 NULL, 'p'},
 			{"datasize",  required_argument, NULL, 's'},
 			{"loops",     required_argument, NULL, 'l'},

@@ -193,7 +193,7 @@ static void parse_options (int argc, char *argv[])
 	for (;;) {
 		int option_index = 0;
 		/** Options for getopt */
-		static struct option long_options[] = {
+		static const struct option long_options[] = {
 			{"prio", required_argument, NULL, 'p'},
 			{"run-time", required_argument, NULL, 'r'},
 			{"sleep-time", required_argument, NULL, 's'},

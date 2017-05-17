@@ -145,7 +145,7 @@ int uniprocessor = 0;
 int lockall = 0;
 
 /* command line options */
-struct option options[] = {
+static const struct option options[] = {
 	{"duration", required_argument, NULL, 't'},
 	{"verbose", no_argument, NULL, 'v'},
 	{"quiet", no_argument, NULL, 'q'},

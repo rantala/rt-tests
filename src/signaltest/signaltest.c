@@ -232,7 +232,7 @@ static void process_options (int argc, char *argv[])
 	for (;;) {
 		int option_index = 0;
 		/** Options for getopt */
-		static struct option long_options[] = {
+		static const struct option long_options[] = {
 			{"breaktrace", required_argument, NULL, 'b'},
 			{"loops", required_argument, NULL, 'l'},
 			{"priority", required_argument, NULL, 'p'},

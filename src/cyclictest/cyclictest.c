@@ -1524,7 +1524,7 @@ static void process_options (int argc, char *argv[], int max_cpus)
 		 * Options for getopt
 		 * Ordered alphabetically by single letter name
 		 */
-		static struct option long_options[] = {
+		static const struct option long_options[] = {
 			{"affinity",         optional_argument, NULL, OPT_AFFINITY},
 			{"notrace",          no_argument,       NULL, OPT_NOTRACE },
 			{"aligned",          optional_argument, NULL, OPT_ALIGNED },
