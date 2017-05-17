@@ -570,14 +570,12 @@ static void debugfs_prepare(void)
 		fatal("could not mount debugfs");
 
 	if (kernelversion >= KV_26_33) {
-		char testname[MAX_PATH];
-
 		fileprefix = get_debugfileprefix();
 		if (!trace_file_exists("tracing_enabled") &&
 		    !trace_file_exists("tracing_on"))
 			warn("tracing_enabled or tracing_on not found\n"
 			    "debug fs not mounted, "
-			    "TRACERs not configured?\n", testname);
+			    "TRACERs not configured?\n");
 	} else
 		fileprefix = procfileprefix;
 }
@@ -1030,7 +1028,7 @@ static void *timerthread(void *param)
 		/* get current smi count to use as base value */
 		if (get_smi_counter(par->msr_fd, &smi_old))
 			fatal("Could not read SMI counter, errno: %d\n",
-				par->cpu, errno);
+				errno);
 	}
 
 	/* Get current time */
@@ -1159,7 +1157,7 @@ static void *timerthread(void *param)
 		if (smi) {
 			if (get_smi_counter(par->msr_fd, &smi_now)) {
 				warn("Could not read SMI counter, errno: %d\n",
-					par->cpu, errno);
+					errno);
 				goto out;
 			}
 			diff_smi = smi_now - smi_old;
