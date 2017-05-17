@@ -2389,8 +2389,9 @@ int main(int argc, char **argv)
 
 			/* set the thread's stack */
 			if (pthread_attr_setstack(&attr, stack, stksize))
-				fatal("failed to set stack addr for thread %d to 0x%x\n",
-				      i, stack+stksize);
+				fatal("failed to set stack addr "
+				      "for thread %d to %p, size %zd\n",
+				      i, stack, stksize);
 		}
 
 		/* allocate the thread's parameter block  */
