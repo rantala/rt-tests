@@ -991,7 +991,7 @@ void *high_priority(void *arg)
 		if (status && status != PTHREAD_BARRIER_SERIAL_THREAD) {
 			pi_error
 			    ("high_priority[%d]: pthread_barrier_wait(finish): %x",
-			     status);
+			     p->id, status);
 			return NULL;
 		}
 		/* update the group stats */
