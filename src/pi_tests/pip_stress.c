@@ -57,7 +57,6 @@
 #include "pip_stress.h"
 
 #include <unistd.h>
-#include <getopt.h>
 
 /* default time for low priority thread usleep */
 useconds_t usleep_val = 500;
@@ -78,11 +77,6 @@ struct State *statep;
 
 const int policy = SCHED_FIFO;
 const int prio_min;	/* Initialized for the minimum priority of policy */
-
-struct option long_options[] = {
-    { "usleep", required_argument, 0, 0 },
-    { 0,        0,                 0, 0 },
-};
 
 int main(void)
 {
