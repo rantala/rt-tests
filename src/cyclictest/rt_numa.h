@@ -90,7 +90,7 @@ static inline unsigned int rt_numa_bitmask_isbitset( const struct bitmask *mask,
 }
 
 static inline struct bitmask* rt_numa_parse_cpustring(const char* s,
-	int max_cpus)
+	int max_cpus __attribute__((unused)))
 {
 #ifdef HAVE_PARSE_CPUSTRING_ALL		/* Currently not defined anywhere.  No
 					   autotools build. */
