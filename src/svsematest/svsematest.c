@@ -634,7 +634,7 @@ int main(int argc, char *argv[])
 				    sender[i].cpu, sender[i].samples);
 			}
 			for (i = 0; i < num_threads; i++) {
-				if (receiver[i].mindiff == -1)
+				if (receiver[i].mindiff == UINT_MAX)
 					printf("#%d -> #%d (not yet ready)\n",
 					    i*2+1, i*2);
 				else
