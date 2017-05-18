@@ -1230,14 +1230,14 @@ static void *timerthread(void *param)
 			}
 			next.tv_sec += overrun_count * interval.tv_sec;
 			next.tv_nsec += overrun_count * interval.tv_nsec;
+		} else {
+			while (tsgreater(&now, &next)) {
+				next.tv_sec += interval.tv_sec;
+				next.tv_nsec += interval.tv_nsec;
+				tsnorm(&next);
+			}
 		}
 		tsnorm(&next);
-
-		while (tsgreater(&now, &next)) {
-			next.tv_sec += interval.tv_sec;
-			next.tv_nsec += interval.tv_nsec;
-			tsnorm(&next);
-		}
 
 		if (par->max_cycles && par->max_cycles == stat->cycles)
 			break;
