@@ -1223,6 +1223,11 @@ static void *timerthread(void *param)
 		next.tv_nsec += interval.tv_nsec;
 		if (par->mode == MODE_CYCLIC) {
 			int overrun_count = timer_getoverrun(timer);
+			if (overrun_count < 0) {
+				warn("timer_getoverrun() failed, errno: %d\n",
+					errno);
+				goto out;
+			}
 			next.tv_sec += overrun_count * interval.tv_sec;
 			next.tv_nsec += overrun_count * interval.tv_nsec;
 		}
