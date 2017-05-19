@@ -1221,6 +1221,8 @@ static void *timerthread(void *param)
 
 		next.tv_sec += interval.tv_sec;
 		next.tv_nsec += interval.tv_nsec;
+		tsnorm(&next);
+
 		if (par->mode == MODE_CYCLIC) {
 			int overrun_count = timer_getoverrun(timer);
 			if (overrun_count < 0) {
