@@ -2115,7 +2115,7 @@ static void print_stat(FILE *fp, struct thread_param *par, int index, int verbos
  * thread that creates a named fifo and hands out run stats when someone
  * reads from the fifo.
  */
-static void *fifothread(void *param)
+static void *fifothread(void *param __attribute__((unused)))
 {
 	int ret;
 	int fd;
