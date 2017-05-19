@@ -378,7 +378,7 @@ static void process_options (int argc, char *argv[])
 
 static int volatile mustshutdown;
 
-static void sighand(int sig)
+static void sighand(int sig __attribute__((unused)))
 {
 	mustshutdown = 1;
 }

@@ -290,7 +290,7 @@ static void process_options (int argc, char *argv[])
 
 static int volatile shutdown;
 
-static void sighand(int sig)
+static void sighand(int sig __attribute__((unused)))
 {
 	shutdown = 1;
 }

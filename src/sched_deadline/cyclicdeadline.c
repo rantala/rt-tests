@@ -1007,7 +1007,7 @@ static int calc_nr_cpus(const char *setcpu, char **buf)
 	return -1;
 }
 
-static void sighand(int sig)
+static void sighand(int sig __attribute__((unused)))
 {
 	shutdown = 1;
 }

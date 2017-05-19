@@ -284,7 +284,7 @@ static void check_kernel(void)
 		oldtrace = 1;
 }
 
-static void sighand(int sig)
+static void sighand(int sig __attribute__((unused)))
 {
 	shutdown = 1;
 }
