@@ -270,7 +270,7 @@ int main(int argc, char **argv)
 	setvbuf(stdout, NULL, _IONBF, 0);
 
 	/* get the number of processors */
-	num_processors = sysconf(_SC_NPROCESSORS_ONLN);
+	num_processors = cpus_online();
 
 	/* calculate the number of inversion groups to run */
 	ngroups = num_processors == 1 ? 1 : num_processors - 1;
