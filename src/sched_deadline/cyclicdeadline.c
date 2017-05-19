@@ -754,9 +754,9 @@ static u64 do_runtime(struct sched_data *sd, u64 period)
 
 
 	diff = now - period;
-	if (diff > stat->max)
+	if (diff > (u64)stat->max)
 		stat->max = diff;
-	if (!stat->min || diff < stat->min)
+	if (!stat->min || diff < (u64)stat->min)
 		stat->min = diff;
 	stat->act = diff;
 	stat->avg += (double) diff;
