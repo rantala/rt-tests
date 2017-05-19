@@ -727,7 +727,7 @@ static void print_stat(FILE *fp, struct sched_data *sd, int index, int verbose, 
 	}
 }
 
-static u64 do_runtime(long tid, struct sched_data *sd, u64 period)
+static u64 do_runtime(struct sched_data *sd, u64 period)
 {
 	struct thread_stat *stat = &sd->stat;
 	u64 next_period = period + sd->deadline_us;
@@ -822,7 +822,7 @@ void *run_deadline(void *data)
 	period = get_time_us();
 	
 	while (!shutdown) {
-		period = do_runtime(tid, sd, period);
+		period = do_runtime(sd, period);
 		sched_yield();
 	}
 	ret = sched_getattr(0, &attr, sizeof(attr), 0);
@@ -1167,7 +1167,7 @@ int main (int argc, char **argv)
 
 		/* Make sure that we can make our deadlines */
 		start_period = get_time_us();
-		do_runtime(gettid(), sd, start_period);
+		do_runtime(sd, start_period);
 		end_period = get_time_us();
 		if (end_period - start_period > sd->runtime_us) {
 			fprintf(stderr, "Failed to perform task within runtime: Missed by %lld us\n",
