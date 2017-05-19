@@ -320,3 +320,15 @@ pid_t gettid(void)
 {
 	return syscall(SYS_gettid);
 }
+
+long cpus_online(void)
+{
+	long cpus = sysconf(_SC_NPROCESSORS_ONLN);
+
+	if (cpus <= 0)
+		err_msg_n(errno,
+			"WARN: sysconf(_SC_NPROCESSORS_ONLN) returned %ld",
+			cpus);
+
+	return cpus;
+}

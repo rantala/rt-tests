@@ -23,5 +23,6 @@ const char *policy_to_string(int policy);
 uint32_t string_to_policy(const char *str);
 
 pid_t gettid(void);
+long cpus_online(void);
 
 #endif	/* __RT_UTILS.H */
